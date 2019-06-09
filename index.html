@@ -16,13 +16,13 @@
 
 <body>
 	<div class="container">
-	
+
 		<h3 class="center alt">&ldquo;Flutter WooCommerce app&rdquo; Documentation by &ldquo;JideGuru&rdquo; v1.0</h3>
-		
+
 		<hr>
-		
+
 		<h1 class="center">&ldquo;Flutter WooCommerce app&rdquo;</h1>
-		
+
 		<div class="borderTop">
 			<div class="span-6 colborder info prepend-1">
 				<p class="prepend-top">
@@ -32,15 +32,15 @@
 					Email: <a href="mailto:guruliciousjide@gmail.com">guruliciousjide@gmail.com</a>
 					</strong>
 				</p>
-			</div><!-- end div .span-6 -->		
-	
+			</div><!-- end div .span-6 -->
+
 			<div class="span-12 last">
 				<p class="prepend-top append-0">Thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="https://codecanyon.net/user/jideguru">here</a>. Thanks so much!</p>
 			</div>
 		</div><!-- end div .borderTop -->
-		
+
 		<hr>
-		
+
 		<h2 id="toc" class="alt">Table of Contents</h2>
 		<ol class="alpha">
 			<li><a href="#installation">Introduction</a></li>
@@ -50,13 +50,46 @@
 			<li><a href="#signapk">Generate a release version of app</a></li>
 			<li><a href="#conclusion">Conclusion</a></li>
 		</ol>
-		
+
 		<hr>
-		
-		<h3 id="installation"><strong>A) Introduction</strong> - <a href="#toc">top</a></h3>
+
+		<h3 id="introductions"><strong>A) Introduction</strong> - <a href="#toc">top</a></h3>
 
 		<p>Flutter WooCommerce app is a wordpress blog app that can be used to make blogs into apps. It was Made Using the Flutter Framework</p>
-		
+		<h2> Definition of terms</h2>
+
+		<ul>
+			<li>
+				<h3>
+					<b>Flutter</b>
+				</h3>
+				<img src="assets/images/flutter.png" width="40"/>
+				<p>
+					Flutter is an open-source mobile application development SDK created by Google. It is used to develop applications for Android and iOS, as well as being the primary method of creating applications for Google Fuchsia, Flutter widgets incorporate all critical platform differences such as scrolling, navigation, icons and fonts to provide full native performance on both iOS and Android.
+
+				</p>
+				<p>
+					The first version of Flutter was known as codename "Sky" and ran on the Android operating system. It was unveiled at the 2015 Dart developer summit, with the stated intent of being able to render consistently at 120 frames per second. During the keynote of Google Developer Days in Shanghai, Google announced Flutter Release Preview 2 which is the last big release before Flutter 1.0. On December 4th, 2018, Flutter 1.0 was released at the Flutter Live event, denoting the first "stable" version of the Framework.
+				</p>
+			</li>
+
+			<li>
+				<h3>
+					<b>WooCommerce</b>
+				</h3>
+				<img src="assets/images/woo.png" width="40"/><img src="assets/images/wp.png" width="40"/>
+				<p>
+					WooCommerce is an open-source e-commerce plugin for WordPress. It is designed for small to large-sized online merchants using WordPress. Launched on September 27, 2011, the plugin quickly became popular for its simplicity to install and customize and free base product.
+				</p>
+				<p>
+					WooCommerce is used by a number of high-traffic websites such as Small Press Expo. For the 3rd week of September 2015, Trends indicated that WooCommerce ran on 30% of e-commerce sites and millions of active installs. Ecommerce is rapidly growing worldwide and WooCommerce has over 39 million downloads as a plugin and is currently active on more than three million websites and is the most popular eCommerce platform in 2018. WooCommerce has approximately 4% of the top million HTML pages. In 2018, statistics show that the percentage of online stores that utilize WooCommerce through Wordpress.org's plugin is more than 30% of all stores.[16] WooCommerce has complete control of the market share with an outstanding 42% of all online stores being powered by Woocommerce.
+
+Since Automattic's acquisition WooCommerce has kept gaining market share, and has now become one of the leading E-commerce platforms on the Internet
+				</p>
+			</li>
+
+		</ul>
+
 		<br>
 		<hr>
 		<h3 id="folderStructure"><strong>B) Folder Structure</strong> - <a href="#toc">top</a></h3>
@@ -65,14 +98,69 @@
 
 		<img src="assets/images/structure.png" alt="Folder Structure" />
 		<br>
+		<h2>Explanation</h2>
+		<ul>
+
+			<li>
+				<b>.git</b>
+				<p>
+					The .git folder is for meant for git to manage version control. You dont need to touch or open it. Infact, you can delete it if you dont need it.
+
+				</p>
+			</li>
+
+			<li>
+				<b>android</b>
+				<p>
+					This folder contain native code for the android platform. <b>DO NOT Delete</b>
+			</li>
+
+			<li>
+				<b>assets</b>
+				<p>
+					This folder contain native app logo that will be using in the flutter app. <b>NOT the app ICON</b>
+			</li>
+
+			<li>
+				<b>iOS</b>
+				<p>
+					This folder contain native code for the iOS platform. <b>DO NOT Delete</b>
+			</li>
+
+			<li>
+				<b>lib</b>
+				<p>
+					Contains <b>.dart</b> files which are flutter code.
+			</li>
+
+			<li>
+				<b>test</b>
+				<p>
+					Its meant to contain tests for the app e.g unit test and so on.
+			</li>
+
+			<li>
+				<b>pubspec.lock, pubspec.yaml</b>
+				<p>
+					pubspec.yaml is the files that contains the dependencies used in the app. pubspec.lock should not be tampered with.
+			</li>
+
+			<li>
+				<b>ReadMe.md</b>
+				<p>
+					ReadMe file for git
+			</li>
+
+		</ul>
 		<br>
-	
+		<br>
+
 		<hr>
-		
+
 		<h3 id="setupflutter"><strong>C) Setting up Futter Development Environment</strong> - <a href="#toc">top</a></h3>
-		
+
 		<h5>Before you start</h5>
-		<li>This documentation was created to help you with the installation and configuration of WP News application. Please, read it carefully to avoid most of potential problems with incorrect configuration.</li>
+		<li>This documentation was created to help you with the installation and configuration of Flutter WooCommerce application. Please, read it carefully to avoid most of potential problems with incorrect configuration.</li>
 
 		<li>This chapter describes how to install Flutter, Android Studio and Xcode(to build for ios only for people with MacOS X). You don't have to install Android Studio, but it's better. The project can be built without Android Studio, using VSCode or IntelliJ with Gradle build system.</li>
 
@@ -107,7 +195,7 @@
 		<li>Open the App Store</li>
 		<li>Search for Xcode</li>
 		<li>Install and Launch Xcode</li><br><br>
-
+		<h3>If you have a slow network connection and cant install using AppStore you can try downloading <a href"https://stackoverflow.com/a/10335943/10835183">.dmg or .zip from here to setup on your Mac</a>.</h3>
 
 		<h4><b>Set up Flutter SDK</b></h4>
 		<a href="https://flutter.dev/docs/get-started/install/">For more Information</a><br><br>
@@ -152,10 +240,10 @@
 		<br>
 		<br>
 		<hr>
-		
+
 		<h3 id="runApp"><strong>D) Setup and Run the source code</strong> - <a href="#toc">top</a></h3>
-		
-		<p>To run the app the below steps should be follow carefully. please pay close attention</p> 
+
+		<p>To run the app the below steps should be follow carefully. please pay close attention</p>
 		<li>Open the source code in your prefered editor(i will be using android studio).</li>
 		<img src="assets/images/as1.png" width="700px" alt="AS" />
 		<br>
@@ -167,23 +255,33 @@
 		<img src="assets/images/as2.png" width="700px" alt="AS" /><br>
 		<p><b>EDIT</b> to your taste.</p><br>
 
-			
-		
+		<br>
+		<br>
+		<li>Change the logo image in the assets folder.</li>
+		<img src="assets/images/as3.png" width="700px" alt="AS" /><br>
+		<h2><b>To change the app's icon, follow this <a href="https://stackoverflow.com/a/55054303/10835183">tutorial</a>!!!</b></h2>
+		<h2><b>To change the app's name and package name, Open the android manifest in app/src/main and also gradle file in the app module as signified below</b></h2>
+		<img src="assets/images/as4.png" width="700px" alt="AS" /><br>
+		<img src="assets/images/as5.png" width="700px" alt="AS" /><br>
+		<br>
+
+
 		<hr>
-		
+
 		<h3 id="signapk"><strong>E) Generate a release version of app</strong> - <a href="#toc">top</a></h3>
 
-		<p>To generate a release APK after every nessacary setup, run "flutter build apk". And for iOS <a href="READ MORE">READ MORE HERE</a></p>
+		<p>To generate a release APK after every necessary setup, run "flutter build apk". And for iOS <a href="READ MORE">READ MORE HERE</a></p>
+		<h2><b>If you have issues updating to google play and getting an error about 64bit apk, follow this <a href="https://github.com/flutter/flutter/issues/18494#issuecomment-477502287">tutorial</a>.</b></h2>
 
 		<hr>
-		
+
 		<h3 id="conclusion"><strong>F) Conclusion</strong> - <a href="#toc">top</a></h3>
 		<br>
-		<p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this app. No guarantees, but I'll do my best to assist. If you have a more general question relating to the app on CodeCanyon, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p> 
-		
+		<p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this app. No guarantees, but I'll do my best to assist. If you have a more general question relating to the app on CodeCanyon, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p>
+
 		<p class="append-bottom alt large"><strong>JideGuru</strong></p>
 		<p><a href="#toc">Go To Table of Contents</a></p>
-		
+
 		<hr class="space">
 	</div><!-- end div .container -->
 </body>
