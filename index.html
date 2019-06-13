@@ -35,7 +35,7 @@
 			</div><!-- end div .span-6 -->
 
 			<div class="span-12 last">
-				<p class="prepend-top append-0">Thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="https://codecanyon.net/user/jideguru">here</a>. Thanks so much!</p>
+				<p class="prepend-top append-0">Thank you for purchasing my app. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="https://codecanyon.net/user/jideguru">here</a>. Thanks so much!</p>
 			</div>
 		</div><!-- end div .borderTop -->
 
@@ -47,6 +47,7 @@
 			<li><a href="#folderStructure">Folder Structure</a></li>
 			<li><a href="#setupflutter">Setting up Futter Development Environment</a></li>
 			<li><a href="#runApp">Setup and Run the source code</a></li>
+			<li><a href="#changeIcon">Change App Icon</a></li>
 			<li><a href="#signapk">Generate a release version of app</a></li>
 			<li><a href="#conclusion">Conclusion</a></li>
 		</ol>
@@ -259,7 +260,7 @@ Since Automattic's acquisition WooCommerce has kept gaining market share, and ha
 		<br>
 		<li>Change the logo image in the assets folder.</li>
 		<img src="assets/images/as3.png" width="700px" alt="AS" /><br>
-		<h2><b>To change the app's icon, follow this <a href="https://stackoverflow.com/a/55054303/10835183">tutorial</a>!!!</b></h2>
+		
 		<h2><b>To change the app's name and package name, Open the android manifest in app/src/main and also gradle file in the app module as signified below</b></h2>
 		<img src="assets/images/as4.png" width="700px" alt="AS" /><br>
 		<img src="assets/images/as5.png" width="700px" alt="AS" /><br>
@@ -268,14 +269,66 @@ Since Automattic's acquisition WooCommerce has kept gaining market share, and ha
 
 		<hr>
 
-		<h3 id="signapk"><strong>E) Generate a release version of app</strong> - <a href="#toc">top</a></h3>
+		<h3 id="changeIcon"><strong>E) Change App Icon</strong> - <a href="#toc">top</a></h3>
+
+		<h2>Android</h2>
+		<img src="https://i.stack.imgur.com/CJ3aB.png" width="700px" alt="IMG">
+		<p>Right click the <code>android</code> folder in your project outline. Go to <strong>New &gt; Image Asset</strong>. Now you can select an image to create your launcher icon from. </p>
+
+		<blockquote>
+		  <p><strong>Note:</strong> I usually use a <code>1024x1024</code> pixel image but you should certainly
+		  use nothing smaller that <code>512x512</code>. If you are using Gimp or Inkscape, you
+		  should have two layers, one for the foreground and one for the
+		  background. The foreground image should have transparent areas for the
+		  background layer to show through.</p>
+		</blockquote>
+
+		<p><a href="https://i.stack.imgur.com/DL2VV.png" rel="noreferrer"><img src="https://i.stack.imgur.com/DL2VV.png" width="700px" alt="IMG"></a></p>
+
+		<p>This will replace the current launcher icons. You can find the generated icons in the <code>mipmap</code> folders:</p>
+		<p><img src="https://i.stack.imgur.com/n7ax9.png" width="300"></p>
+		<p>If you would prefer to create the launcher icons manually, see <a href="https://stackoverflow.com/a/46196511/3681880">this answer</a> for help.</p>
+
+		<p>Finally, make sure that the launcher icon name in the AndroidManifest is the same as what you called it above (<code>ic_launcher</code> by default):</p>
+
+		<pre><code>application android:icon="@mipmap/ic_launcher"
+		</code></pre>
+
+		<p>Run the app in the emulator to confirm that the launcher icon was created successfully.</p>
+
+		<h1>iOS</h1>
+
+		<p>I always used to individually resize my iOS icons by hand, but if you have a Mac, there is a free app in the Mac App Store called <a href="https://itunes.apple.com/de/app/icon-set-creator/id939343785?l=en&amp;mt=12" rel="noreferrer">Icon Set Creator</a>. You give it an image (of at least <code>1024x1024</code> pixels) and it will spit out all the sizes that you need (plus the <code>Contents.json</code> file). Thanks to <a href="https://stackoverflow.com/a/45122603/3681880">this answer</a> for the suggestion.</p>
+
+		<p>iOS icons should not have any transparency. See more guidelines <a href="https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/" rel="noreferrer">here</a>.</p>
+
+		<p>After you have created the icon set, start Xcode (assuming you have a Mac) and use it to open the <code>ios</code> folder in your Flutter project. Then go to <strong>Runner > Assets.xcassets</strong> and delete the AppIcon item.</p>
+
+		<p><a href="https://i.stack.imgur.com/lb9io.png" rel="noreferrer"><img src="https://i.stack.imgur.com/lb9io.png" width="700px" alt="IMG"></a></p>
+
+		<p>After that right-click and choose <strong>Import...</strong>. Choose the icon set that you just created.</p>
+
+		<p>That's it. Confirm that the icon was created by running the app in the simulator.</p>
+
+		<h3>If you don't have a Mac...</h3>
+
+		<p>You can still create all of the images by hand. In your Flutter project go to <code>ios/Runner/Assets.xcassets/AppIcon.appiconset</code>.</p>
+
+		<p><img src="https://i.stack.imgur.com/B9CKd.png" width="350" ></p>
+
+		<p>The image sizes that you need are the multiplied sizes in the filename. For example, <code>Icon-App-29x29@3x.png</code> would be <code>29</code> times <code>3</code>, that is, <code>87</code> pixels square. You either need to keep the same icon names or edit the JSON file.</p>
+
+
+		<br>
+		<hr>
+		<h3 id="signapk"><strong>F) Generate a release version of app</strong> - <a href="#toc">top</a></h3>
 
 		<p>To generate a release APK after every necessary setup, run "flutter build apk". And for iOS <a href="READ MORE">READ MORE HERE</a></p>
 		<h2><b>If you have issues updating to google play and getting an error about 64bit apk, follow this <a href="https://github.com/flutter/flutter/issues/18494#issuecomment-477502287">tutorial</a>.</b></h2>
 
 		<hr>
 
-		<h3 id="conclusion"><strong>F) Conclusion</strong> - <a href="#toc">top</a></h3>
+		<h3 id="conclusion"><strong>G) Conclusion</strong> - <a href="#toc">top</a></h3>
 		<br>
 		<p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this app. No guarantees, but I'll do my best to assist. If you have a more general question relating to the app on CodeCanyon, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p>
 
