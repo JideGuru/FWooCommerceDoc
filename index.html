@@ -623,8 +623,25 @@ Since Automattic's acquisition WooCommerce has kept gaining market share, and ha
 		<hr>
 
 		<h3 id="runApp"><strong>D) Setup and Run the source code</strong> - <a href="#toc">top</a></h3>
-
 		<p>To run the app the below steps should be follow carefully. please pay close attention</p>
+
+		<h3>Goto your wordpress hosting, naviagte to your wordpress folder/wp-includes then ad this to functions.php
+			<br>
+		<p><pre>
+			function checkloggedinuser(){
+				$currentuserid_fromjwt = get_current_user_id();
+				print_r($currentuserid_fromjwt);
+				exit;
+			}
+
+			add_action('rest_api_init', function (){
+			  register_rest_route( 'testone', 'loggedinuser',array(
+			  'methods' => 'POST',
+			  'callback' => 'checkloggedinuser'
+			  ));
+			});
+		</pre><p>
+		<br>
 		<li>Open the source code in your prefered editor(i will be using android studio).</li>
 		<img src="assets/images/as1.png" width="700px" alt="AS" />
 		<br>
